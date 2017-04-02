@@ -1,0 +1,12 @@
+{% extends "header.html" %}
+{% block content %}
+    <form method="post" action="/signup">
+        {{ form.csrf_token }}
+        {{ form.username.label }} {{ form.username(size=20) }}
+        {{ form.email.label }} {{ form.email(size=20) }}
+        {{ form.password.label }} {{ form.password(size=20) }}
+        {{ form.confirm.label }} {{ form.confirm(size=20) }}
+        {{ form.accept_tos.label }} {{ form.accept_tos }}
+        <p><input type="submit" value="Register"></p>
+    </form>
+{% endblock %}

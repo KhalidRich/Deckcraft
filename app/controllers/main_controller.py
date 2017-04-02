@@ -1,6 +1,8 @@
 from flask import render_template, flash, redirect, session, url_for, request, g
 from app import app, db
-from forms import *
+from app.forms import *
+from app.models import User
+from app.helpers import account_manager
 
 import time
 
@@ -23,8 +25,8 @@ def signup():
     registration_form = RegistrationForm()
     if request.method == 'GET':
         return render_template('signup.html', form=registration_form)
-    elif request.method == 'POST' and form.validate():
-        user = User.create_new_user(registration_form)
+    elif request.method == 'POST':
+        user = account_manager.create_user(registration_form)
         flash('Account created! Now let\'s get to building.')
         return redirect('index.html')
 
@@ -37,7 +39,7 @@ def login():
         flash('Log in successful. Now let\'s get to building.')
         return redirect('index.html')
 
-@app.route('logout')
+@app.route('/logout')
 def logout():
     if request.method == 'GET':
         pass
