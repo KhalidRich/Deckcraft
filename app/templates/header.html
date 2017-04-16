@@ -4,8 +4,24 @@
     </head>
     <body>
         <div>
+            <div class="navigation">
+                <ul class="nav navbar-nav">
+                    <li class='home-btn'><a href='/'>Home</li>
+                    <li class='create-deck-btn'><a href='/create-deck'>Create Deck</li>
+                    <li class='view-decks-btn'><a href='/view-decks'>View Decks</li>
+                    <li class='profile-settings-btn'><a href='/profile-settings'></li>
+
+                    {% if g.user %}
+                    <button type="button" class="btn btn-danger" onclick="window.location='/signout'">Sign Out</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" onclick="window.location='/login'">Log in</button>
+                    <button type="button" class="btn btn-success" onclick="window.location='/signout'">Sign up</button>
+                    {% endif %}
+                </ul>
+            </div>
             {% block content %}
             {% endblock %}
         </div>
     </body>
 </html>
+
