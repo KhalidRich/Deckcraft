@@ -28,16 +28,17 @@ def signup():
     elif request.method == 'POST':
         user = account_manager.create_user(registration_form)
         flash('Account created! Now let\'s get to building.')
-        return redirect('index.html')
+        return redirect('/')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm()
     if request.method == 'GET':
+        print(render_template('login.html', form=login_form))
         return render_template('login.html', form=login_form)
-    elif request.method == 'POST' and form.validate():
+    elif request.method == 'POST' and login_form.validate():
         flash('Log in successful. Now let\'s get to building.')
-        return redirect('index.html')
+        return redirect('/')
 
 @app.route('/logout')
 def logout():
