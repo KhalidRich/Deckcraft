@@ -1,0 +1,60 @@
+/* Navigation Settings */
+
+@keyframes menu-option-hover {
+    from {background-color: #333;}
+    to {background-color: #46b8da;}
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    align-self: center;
+    flex-direction: row;
+    width: 72.2%;
+    height: 55px;
+}
+
+.navbar-nav li {
+    float: right;
+    display: inline;
+    border-right: 1px solid #bbb;
+}
+
+.navbar-nav li:last-child {
+    border-right: none;
+}
+
+.navbar-nav li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.navbar-nav li a:hover {
+    animation-name: menu-option-hover;
+}
+
+/* Sign-Up/Sign-Out/Sign-in Button styling */
+.sign-out-btn {
+    background-color: #a94442;
+}
+
+.login-btn {
+    background-color: #0275d8;
+}
+
+.signup-btn {
+    background-color: #5cb85c;
+}
+
+.space{
+    width: 100%;
+    height: 55px;
+}
