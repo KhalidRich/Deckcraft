@@ -28,7 +28,7 @@ def signup():
     elif request.method == 'POST':
         user = account_manager.create_user(registration_form)
         flash('Account created! Now let\'s get to building.')
-        g.setdefault('user', user)
+        session['logged_in'] = True
         return redirect('/')
 
 @app.route('/login', methods=['GET', 'POST'])
