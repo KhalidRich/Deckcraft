@@ -7,6 +7,7 @@ import hashlib
 import uuid
 
 # Some Constants
+DUMMY_USER = -1
 ADMIN_USER = 0
 MODERATOR_USER = 1
 REGULAR_USER = 2
@@ -39,4 +40,5 @@ def disable_account(username):
 def delete_account(username):
     pass
 
-
+def get_default_user():
+    return User.query.filter_by(_id=0).first()
